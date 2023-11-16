@@ -84,6 +84,7 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
+	{ Mod1Mask,			XK_space, spawn,		SHCMD("dunstctl context") },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,			XK_Return, spawn,		SHCMD("dmenu-tmux home && tmux new-window") },
@@ -98,6 +99,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_c,	   spawn,	   {.v = (const char*[]){ "dmenu-clipboard", NULL } } },
 
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,			XK_n,	spawn,		SHCMD("dunstctl history-pop") },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_i,      incnmaster,     {.i = +1 } },
