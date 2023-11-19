@@ -80,7 +80,7 @@ static const Layout layouts[] = {
 #define BROWSER "firefox"
 
 /* commands */
-static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray4, "-sb", col_gray3, "-sf", col_gray1, NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-p", "Run", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
