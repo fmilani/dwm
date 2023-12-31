@@ -94,6 +94,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_e,	   spawn,	   {.v = (const char*[]){ "dmenu-power", NULL } } },
 	{ MODKEY,			XK_r,	   spawn,	   {.v = (const char*[]){ "dmenu-keyboard", NULL } } },
 	{ MODKEY,			XK_t,	   spawn,	   {.v = (const char*[]){ "todo", NULL } } },
+	{ MODKEY|ShiftMask,		XK_t,	   spawn,	   {.v = (const char*[]){ "dmenu-tmux", NULL } } },
 	{ MODKEY,			XK_p,	   spawn,	   {.v = (const char*[]){ "dmenu-screenshot", NULL } } },
 	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   {.v = (const char*[]){ "dmenu-screencast", NULL } } },
 	{ MODKEY,			XK_a,	   spawn,	   {.v = (const char*[]){ "dmenu-audio", NULL } } },
