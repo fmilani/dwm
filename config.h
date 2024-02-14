@@ -79,12 +79,17 @@ static const Layout layouts[] = {
 #define STATUSBAR "dwmblocks"
 #define BROWSER "firefox"
 
+#define XF86MonBrightnessUp 0x1008ff02
+#define XF86MonBrightnessDown 0x1008ff03
+
 /* commands */
 static const char *dmenucmd[] = { "dmenu_run", "-p", "Run", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
-	{ Mod1Mask,			XK_space, spawn,		SHCMD("dunstctl context") },
+	{ 0,				XF86MonBrightnessUp,  spawn,	SHCMD("xbacklight -inc 5") },
+	{ 0,				XF86MonBrightnessDown,  spawn,	SHCMD("xbacklight -dec 5") },
+	{ Mod1Mask,			XK_space,  spawn,		SHCMD("dunstctl context") },
 	{ MODKEY,                       XK_space,  setlayout,      {0} },
 	{ MODKEY|ShiftMask,             XK_space,  spawn,          {.v = dmenucmd } },
 	{ MODKEY,			XK_Return, spawn,		SHCMD("tmux-sessions home && tmux new-window") },
