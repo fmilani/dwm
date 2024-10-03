@@ -127,6 +127,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_minus,  setgaps,        {.i = -1 } },
 	{ MODKEY,                       XK_equal,  setgaps,        {.i = +1 } },
 	{ MODKEY|ShiftMask,             XK_equal,  setgaps,        {.i = 0  } },
+	{ MODKEY,                       XK_bracketleft, spawn,     SHCMD("wpctl set-volume @DEFAULT_SINK@ 5%- && sigdwmblocks 2") },
+	{ MODKEY,                       XK_bracketright, spawn,     SHCMD("wpctl set-volume @DEFAULT_SINK@ 5%+ && sigdwmblocks 2") },
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
 	TAGKEYS(                        XK_3,                      2)
