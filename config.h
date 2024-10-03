@@ -50,6 +50,7 @@ static const Rule rules[] = {
 	{ "tmux",     NULL,       "tmux",     1,            0,           -1 },
 	{ "firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "Slack",    NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "mpv",      NULL,       NULL,       0,            1,           -1 },
 };
 
 /* layout(s) */
