@@ -64,6 +64,8 @@ static const Layout layouts[] = {
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
 };
 
 #define BROWSER "firefox"
@@ -111,12 +113,13 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
+	{ MODKEY|ShiftMask,             XK_l,      setlayout,      {.v = &layouts[3]} },
 	{ MODKEY,                       XK_x,      spawn,          {.v = (const char*[]){ "xsecurelock", NULL } } },
 	{ MODKEY,			XK_c,	   spawn,	   {.v = (const char*[]){ "clipboard", NULL } } },
 	{ MODKEY,                       XK_v,      spawn,          {.v = (const char*[]){ "twitch-watch", NULL } } },
 	{ MODKEY,                       XK_b,      spawn,	   {.v = (const char*[]){ "bookmarks", NULL } } },
 	{ MODKEY|ShiftMask,             XK_b,      spawn,	   {.v = (const char*[]){ "bt-devices", NULL } } },
-	{ MODKEY|,			XK_m,	   spawn,	   {.v = (const char*[]){ "displays", NULL } } },
+	{ MODKEY,			XK_m,	   spawn,	   {.v = (const char*[]){ "displays", NULL } } },
 	{ MODKEY|ShiftMask,             XK_m,      setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
