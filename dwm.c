@@ -1806,17 +1806,17 @@ tile(Monitor *m)
 	else
 		mw = m->ww - m->gappx;
 	for (i = 0, my = ty = m->gappx, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
-			if (i < m->nmaster) {
-			h = (m->wh - my) / (MIN(n, m->nmaster) - i) - m->gappx;
-			resize(c, m->wx + m->gappx, m->wy + my, mw - (2*c->bw) - m->gappx, h - (2*c->bw), 0);
-			if (my + HEIGHT(c) + m->gappx < m->wh)
-				my += HEIGHT(c) + m->gappx;
-		} else {
-			h = (m->wh - ty) / (n - i) - m->gappx;
-			resize(c, m->wx + mw + m->gappx, m->wy + ty, m->ww - mw - (2*c->bw) - 2*m->gappx, h - (2*c->bw), 0);
-			if (ty + HEIGHT(c) + m->gappx < m->wh)
-				ty += HEIGHT(c) + m->gappx;
-		}
+	if (i < m->nmaster) {
+		h = (m->wh - my) / (MIN(n, m->nmaster) - i) - m->gappx;
+		resize(c, m->wx + m->gappx, m->wy + my, mw - (2*c->bw) - m->gappx, h - (2*c->bw), 0);
+		if (my + HEIGHT(c) + m->gappx < m->wh)
+			my += HEIGHT(c) + m->gappx;
+	} else {
+		h = (m->wh - ty) / (n - i) - m->gappx;
+		resize(c, m->wx + mw + m->gappx, m->wy + ty, m->ww - mw - (2*c->bw) - 2*m->gappx, h - (2*c->bw), 0);
+		if (ty + HEIGHT(c) + m->gappx < m->wh)
+			ty += HEIGHT(c) + m->gappx;
+	}
 }
 
 void
@@ -2336,15 +2336,15 @@ centeredmaster(Monitor *m)
 		return;
 
 	/* initialize areas */
-	mw = m->ww;
-	mx = 0;
+	mw = m->ww - 2*m->gappx;
+	mx = m->gappx;
 	my = 0;
 	tw = mw;
 
 	if (n > m->nmaster) {
 		/* go mfact box in the center if more than nmaster clients */
 		mw = m->nmaster ? m->ww * m->mfact : 0;
-		tw = m->ww - mw;
+		tw = m->ww - mw - m->gappx;
 
 		if (n - m->nmaster > 1) {
 			/* only one client */
@@ -2355,28 +2355,28 @@ centeredmaster(Monitor *m)
 
 	oty = 0;
 	ety = 0;
-	for (i = 0, c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
-	if (i < m->nmaster) {
-		/* nmaster clients are stacked vertically, in the center
-		 * of the screen */
-		h = (m->wh - my) / (MIN(n, m->nmaster) - i);
-		resize(c, m->wx + mx, m->wy + my, mw - (2*c->bw),
-		       h - (2*c->bw), 0);
-		my += HEIGHT(c);
-	} else {
-		/* stack clients are stacked vertically */
-		if ((i - m->nmaster) % 2 ) {
-			h = (m->wh - ety) / ( (1 + n - i) / 2);
-			resize(c, m->wx, m->wy + ety, tw - (2*c->bw),
+	for (i = 0, my = m->gappx ,c = nexttiled(m->clients); c; c = nexttiled(c->next), i++)
+		if (i < m->nmaster) {
+			/* nmaster clients are stacked vertically, in the center
+			 * of the screen */
+			h = (m->wh - my) / (MIN(n, m->nmaster) - i) - m->gappx;
+			resize(c, m->wx + mx, m->wy + my, mw - (2*c->bw),
 			       h - (2*c->bw), 0);
-			ety += HEIGHT(c);
+			my += HEIGHT(c) + m->gappx;
 		} else {
-			h = (m->wh - oty) / ((1 + n - i) / 2);
-			resize(c, m->wx + mx + mw, m->wy + oty,
-			       tw - (2*c->bw), h - (2*c->bw), 0);
-			oty += HEIGHT(c);
+			/* stack clients are stacked vertically */
+			if ((i - m->nmaster) % 2 ) {
+				h = (m->wh - ety) / ( (1 + n - i) / 2) - m->gappx;
+				resize(c, m->wx + m->gappx, m->wy + ety + m->gappx, tw - (2*c->bw) - 2*m->gappx,
+				       h - (2*c->bw) - m->gappx, 0);
+				ety += HEIGHT(c) + m->gappx;
+			} else {
+				h = (m->wh - oty) / ((1 + n - i) / 2) - m->gappx;
+				resize(c, m->wx + mx + mw + m->gappx, m->wy + oty + m->gappx,
+				       tw - (2*c->bw) - 2*m->gappx, h - (2*c->bw) - m->gappx, 0);
+				oty += HEIGHT(c) + m->gappx;
+			}
 		}
-	}
 }
 
 void
