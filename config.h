@@ -48,7 +48,7 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "tmux",     NULL,       "tmux",     1,            0,           -1 },
-	{ "firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "zen",  NULL,       NULL,       1 << 1,       0,           -1 },
 	{ "Slack",    NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "mpv",      NULL,       NULL,       0,            1,           -1 },
 };
@@ -68,7 +68,7 @@ static const Layout layouts[] = {
 	{ ">M>",      centeredfloatingmaster },
 };
 
-#define BROWSER "firefox"
+#define BROWSER "zen-browser"
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
@@ -103,6 +103,7 @@ static const Key keys[] = {
 	{ MODKEY,			XK_p,	   spawn,	   {.v = (const char*[]){ "screenshot", NULL } } },
 	{ MODKEY|ShiftMask,		XK_p,	   spawn,	   {.v = (const char*[]){ "screencast", NULL } } },
 	{ MODKEY,			XK_a,	   spawn,	   {.v = (const char*[]){ "audio-sinks", NULL } } },
+	{ MODKEY|ShiftMask,		XK_a,	   spawn,	   {.v = (const char*[]){ "switch-soundcore-profile", NULL } } },
 	{ MODKEY,			XK_s,	   spawn,	   {.v = (const char*[]){ "websearch", NULL } } },
 	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   {.v = (const char*[]){ "tmux-sessions", NULL } } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
