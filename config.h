@@ -48,11 +48,11 @@ static const Rule rules[] = {
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "tmux",     NULL,       "tmux",     1,            0,           -1 },
-	{ "zen",  NULL,       NULL,       1 << 1,       0,           -1 },
+	{ "Google-chrome",  "google-chrome",       NULL,       1 << 1,       0,           -1 },
 	{ "Slack",    NULL,       NULL,       1 << 8,       0,           -1 },
 	{ "mpv",      NULL,       NULL,       0,            1,           -1 },
-	{ "Chromium", "www.youtube.com__watch",       NULL,       1 << 6,            0,           -1 },
-	{ "Chromium", "www.youtube.com",       NULL,       1 << 6,            0,           -1 },
+	{ "Google-chrome", "www.youtube.com__watch",       NULL,       1 << 6,            0,           -1 },
+	{ "Google-chrome", "www.youtube.com",       NULL,       1 << 6,            0,           -1 },
 };
 
 /* layout(s) */
@@ -70,7 +70,7 @@ static const Layout layouts[] = {
 	{ ">M>",      centeredfloatingmaster },
 };
 
-#define BROWSER "zen-browser"
+#define BROWSER "google-chrome-stable"
 /* key definitions */
 #define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
