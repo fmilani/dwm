@@ -71,10 +71,13 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_Return,       zoom,           {0} },
 	{ MODKEY,                       XK_b,            spawn,          SHCMD("bookmarks") },
 	{ MODKEY,                       XK_c,            spawn,          SHCMD("clipboard") },
+	{ MODKEY|ShiftMask,             XK_c,            spawn,          SHCMD("chatgpt") },
 	{ MODKEY,                       XK_f,            spawn,          SHCMD("filesearch") },
 	{ MODKEY,                       XK_j,            focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,            focusstack,     {.i = -1 } },
+	{ MODKEY,                       XK_d,            spawn,          SHCMD("display-toggle") },
 	{ MODKEY|ShiftMask,             XK_d,            spawn,          {.v = dmenucmd } },
+	{ MODKEY|ShiftMask,             XK_e,            spawn,          SHCMD("powermenu") },
 	{ MODKEY,                       XK_h,            setmfact,       {.f = -0.05} },
 	{ MODKEY,                       XK_l,            setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Tab,          view,           {0} },
@@ -88,11 +91,15 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_period,       tagmon,         {.i = +1 } },
   { MODKEY,                       XK_bracketleft,  spawn,          SHCMD("wpctl set-volume @DEFAULT_SINK@ 5%-") },
 	{ MODKEY,                       XK_bracketright, spawn,          SHCMD("wpctl set-volume @DEFAULT_SINK@ 5%+") },
+	{ MODKEY,                       XK_p,            spawn,          SHCMD("screenshot") },
+	{ MODKEY|ShiftMask,             XK_p,            spawn,          SHCMD("screencast") },
 	{ MODKEY,                       XK_q,            killclient,     {0} },
 	{ MODKEY|ShiftMask,             XK_q,            quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_r,            spawn,          SHCMD("rebuild-dwm") },
+	{ MODKEY,                       XK_s,            spawn,          SHCMD("websearch") },
 	{ MODKEY,                       XK_t,            spawn,          SHCMD("todo") },
-
+	{ MODKEY,                       XK_x,            spawn,          SHCMD("xsecurelock") },
+	{ MODKEY,                       XK_y,            spawn,          SHCMD("youtube") },
 
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
