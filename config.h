@@ -32,6 +32,7 @@ static const Rule rules[] = {
 	/* class            instance                  title       tags mask     isfloating   monitor */
 	{ "tmux",           NULL,                     "tmux",     1,            0,           0 },
 	{ "Google-chrome",  "google-chrome",          NULL,       1 << 1,       0,           0 },
+	{ "chrome-work",    NULL,                     NULL,       1 << 2,       0,           0 },
 	{ "Slack",          NULL,                     NULL,       1 << 8,       0,           0 },
 	{ "jetbrains-idea", "jetbrains-idea",         NULL,       1 << 3,       0,           0 },
 	{ "Google-chrome",  "www.youtube.com__watch", NULL,       1 << 6,       0,           1 },
@@ -101,6 +102,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_r,            spawn,          SHCMD("rebuild-dwm") },
 	{ MODKEY,                       XK_s,            spawn,          SHCMD("websearch") },
 	{ MODKEY,                       XK_t,            spawn,          SHCMD("todo") },
+  { MODKEY,                       XK_w,            spawn,          SHCMD("google-chrome") },
+  { MODKEY|ShiftMask,             XK_w,            spawn,          SHCMD("google-chrome-evolu") },
 	{ MODKEY,                       XK_x,            spawn,          SHCMD("xsecurelock") },
 	{ MODKEY,                       XK_y,            spawn,          SHCMD("youtube") },
 
