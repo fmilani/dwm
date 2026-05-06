@@ -101,6 +101,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,            quit,           {0} },
 	{ MODKEY|ShiftMask,             XK_r,            spawn,          SHCMD("rebuild-dwm") },
 	{ MODKEY,                       XK_s,            spawn,          SHCMD("websearch") },
+	{ MODKEY|ShiftMask,             XK_s,            spawn,          SHCMD("slack") },
 	{ MODKEY,                       XK_t,            spawn,          SHCMD("todo") },
 	{ MODKEY,                       XK_w,            spawn,          SHCMD("google-chrome") },
 	{ MODKEY|ShiftMask,             XK_w,            spawn,          SHCMD("google-chrome-evolu") },
